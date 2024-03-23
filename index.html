@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdóname, Princesa</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('rosas_fondo.jpg'); /* Imagen de fondo con diseño de rosas */
+            background-color: rgba(170, 0, 51, 0.8); /* Rosa oscuro */
+            background-blend-mode: multiply; /* Mezcla el color de fondo con la imagen de fondo */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Evitar que el GIF se desborde */
+        }
+        #gif-container {
+            display: none; /* Ocultar el contenedor del GIF inicialmente */
+            width: 500px; /* Ancho aumentado */
+            height: auto; /* Altura ajustada automáticamente */
+            border-radius: 20px; /* Bordes redondeados */
+            overflow: hidden; /* Ocultar partes del GIF que excedan los bordes */
+            margin-bottom: 30px; /* Espacio inferior */
+        }
+        #Princesss {
+            width: 100%; /* Ancho completo */
+            height: auto; /* Altura ajustada automáticamente */
+        }
+        #texto-perdon {
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+        #opciones {
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .opcion {
+            margin: 10px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .opcion:hover {
+            background-color: white;
+            color: #aa0033; /* Rosa oscuro */
+        }
+        #opcion-si {
+            background-color: #aa0033; /* Rosa oscuro */
+            color: white;
+            transition: all 0.1s linear; /* Ajuste de velocidad */
+        }
+    </style>
+</head>
+<body>
+    <div id="gif-container">
+        <img id="Princesss" src="Princesss.gif" alt="Princesss">
+    </div>
+    <div id="texto-perdon">¿Me perdonas?</div>
+    <div id="opciones">
+        <div id="opcion-si" class="opcion" onclick="perdonar()">Sí</div>
+        <div id="opcion-no" class="opcion" onclick="cambiarTextoNo()">No</div>
+    </div>
+
+    <script>
+        var contadorNo = 1;
+        var contadorSi = 0;
+
+        function perdonar() {
+            var textoPerdon = document.getElementById("texto-perdon");
+            textoPerdon.textContent = "SII, SABIA QUE ME PERDONARIAS PRINCESA <3";
+
+            // Mostrar el contenedor del GIF
+            var gifContainer = document.getElementById("gif-container");
+            gifContainer.style.display = "block";
+
+            // Eliminar las opciones
+            var opciones = document.getElementById("opciones");
+            opciones.style.display = "none";
+        }
+
+        function cambiarTextoNo() {
+            var opcionNo = document.getElementById("opcion-no");
+            switch (contadorNo) {
+                case 1:
+                    opcionNo.textContent = "POR FAVOR";
+                    break;
+                case 2:
+                    opcionNo.textContent = "ANDALE MORR PERDONAME!!";
+                    break;
+                case 3:
+                    opcionNo.textContent = "ANDALE SIII??";
+                    break;
+                case 4:
+                    opcionNo.textContent = "ME PONDRE TRISTE :(";
+                    break;
+                case 5:
+                    opcionNo.textContent = "PERDONAMEEE";
+                    break;
+                case 6:
+                    opcionNo.textContent = "SIIII?";
+                    break;
+                case 7:
+                    opcionNo.textContent = "ME ODIASS";
+                    break;
+                case 9:
+                    opcionNo.textContent = "DEJA DE DECIR QUE NO!!!";
+                    break;
+                case 10:
+                    opcionNo.textContent = "YAAAAA!!!";
+                    break;    
+                case 11:
+                    opcionNo.textContent = "NO INSISTAS!!";
+                    break;
+                case 12:
+                    opcionNo.textContent = "YA DI QUE SII!!!";
+                    break;
+                case 13:
+                    opcionNo.textContent = "ANDALE PRINCESA";
+                    break;
+                case 14:
+                    opcionNo.textContent = ":(((((";
+                    break;
+                case 15:
+                    opcionNo.textContent = "ME QUIERES FUERA DE TU VIDA";
+                    break;
+                case 16:
+                    opcionNo.textContent = "YAAAAAAA!!!!";
+                    break;
+                case 17:
+                    opcionNo.textContent = "DIME QUE SIII!!!";
+                    break;
+                default:
+                    opcionNo.textContent = "ANANE POFAVO";
+            }
+            contadorNo++;
+
+            // Aumentar el tamaño del texto "Sí" de manera rápida
+            var opcionSi = document.getElementById("opcion-si");
+            var newSize = parseInt(window.getComputedStyle(opcionSi).getPropertyValue('font-size')) + 15;
+            opcionSi.style.fontSize = newSize + "px";
+        }
+
+        function cambiarTextoSi() {
+            var opcionSi = document.getElementById("opcion-si");
+            switch (contadorSi) {
+                case 0:
+                    opcionSi.textContent = "Estas segura?";
+                    break;
+                case 1:
+                    opcionSi.textContent = "MUY MUY SEGURA?";
+                    break;
+                case 2:
+                    opcionSi.textContent = "SEGURA PRECIOSA?";
+                    break;
+                case 3:
+                    opcionSi.textContent = "¡Vamos a ser felices juntos!";
+                    break;
+                default:
+                    opcionSi.textContent = "¡Vamos a ser felices juntos!";
+            }
+            contadorSi++;
+        }
+    </script>
+</body>
+</html>
